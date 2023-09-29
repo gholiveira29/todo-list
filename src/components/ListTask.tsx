@@ -11,7 +11,7 @@ interface Task {
 }
 
 export function ListTask({
-    isCompleted,
+    isCompleted = false,
     content,
     id,
     onDeleteTask,
@@ -50,7 +50,13 @@ export function ListTask({
                 </div>
 
                 <div className={styles.textContainer}>
-                    <span className={styles.text}>{content}</span>
+                    {isCompleted ? (
+                        <span className={styles.textIsCompleted}>
+                            {content}
+                        </span>
+                    ) : (
+                        <span className={styles.text}>{content}</span>
+                    )}
                 </div>
                 <button onClick={handleDeleteTask}>
                     <Trash className={styles.trash} />

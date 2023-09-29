@@ -16,14 +16,29 @@ type task = {
 export function Home() {
     const [tasks, setTasks] = useState<task[]>([]);
     const [newContentTask, setNewContentTask] = useState('');
-    const [checked, setChecked] = useState<boolean>(false);
-    // const [taskIsCpmpleted, seTaskIsCompleted] = useState([]);
+    const [checked, setChecked] = useState({
+        checked: false,
+        id: 0,
+    });
+    const [taskIsCpmpleted, setTaskIsCompleted] = useState<task[]>([]);
 
     let idRandom = Math.random() * 20;
 
     function handleCheckedTask(e: any) {
-        console.log(e.target.checked);
-        setChecked(e.target.checked);
+        tasks.map((tes) => {
+            if (tes.id == e.target.id) {
+                tes.isCompleted = e.target.checked;
+                setChecked({
+                    checked: tes.isCompleted,
+                    id: tes.id,
+                });
+            }
+        });
+
+        let taskIsCompleted = tasks.filter(
+            (element) => element.isCompleted == true
+        );
+        setTaskIsCompleted(taskIsCompleted);
     }
 
     function createNewTask(event: FormEvent) {
@@ -52,6 +67,7 @@ export function Home() {
             return task.id !== id;
         });
         setTasks(taskWithoutDeletedOne);
+        setTaskIsCompleted(taskWithoutDeletedOne);
     }
 
     return (
@@ -72,7 +88,7 @@ export function Home() {
                     <span className={styles.taskConcluida}>
                         Concluidas
                         <span>
-                            {5} de {tasks.length}
+                            {taskIsCpmpleted.length} de {tasks.length}
                         </span>
                     </span>
                 </div>
@@ -83,7 +99,11 @@ export function Home() {
                                 id={task.id}
                                 key={task.content}
                                 content={task.content}
-                                isCompleted={checked}
+                                isCompleted={
+                                    task.id == checked.id
+                                        ? checked.checked
+                                        : task.isCompleted
+                                }
                                 onDeleteTask={deleteComment}
                                 CheckedTask={handleCheckedTask}
                             />
@@ -93,12 +113,14 @@ export function Home() {
                     <div className={styles.noTasks}>
                         <ClipboardText className={styles.clipBoard} size={60} />
 
-                        <p>
-                            <strong>
-                                Você ainda não tem tarefas cadastradas
-                            </strong>
-                        </p>
-                        <p>Crie tarefas e organize seus itens a fazer</p>
+                        <div>
+                            <p>
+                                <strong>
+                                    Você ainda não tem tarefas cadastradas
+                                </strong>
+                            </p>
+                            <p>Crie tarefas e organize seus itens a fazer</p>
+                        </div>
                     </div>
                 )}
             </div>

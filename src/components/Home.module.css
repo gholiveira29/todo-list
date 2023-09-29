@@ -10,7 +10,7 @@
     justify-content: center;
     align-items: center;
 
-    margin-top: 10rem;
+    margin-top: 5rem;
 }
 
 .clipBoard {
@@ -44,4 +44,8 @@ p {
 .taskConcluida span{
     margin-left: 5px;
     color: var(--gray-100);
+}
+
+.noTasks div {
+    margin-left: 11rem;
 }

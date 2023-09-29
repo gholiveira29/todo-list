@@ -55,6 +55,11 @@ input[type="checkbox"]:checked + .customRadio {
 .text {
     color: var(--gray-100);
 }
+.textIsCompleted {
+    color: var(--gray-300);
+    text-decoration: line-through;
+}
+
 button {
     background: transparent;
     border: 0;
