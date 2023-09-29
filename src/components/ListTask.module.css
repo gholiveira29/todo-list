@@ -1,0 +1,70 @@
+.listContainer {
+    justify-content: center;
+    align-items: center;
+    max-width: 47.25rem;
+}
+
+.task {
+    width: 46rem;
+    height: auto;
+    background: var(--gray-500);
+    display: flex;
+    justify-content: space-between;
+
+    border-radius: 10px;
+
+    padding: 1rem;
+    margin: 1rem auto;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.radioContainer label {
+    display: flex;
+    align-items: center;
+    column-gap: 1.25rem;
+    margin-top: 0.438rem;
+}
+
+.customRadio {
+    border: 1px solid var(--blue);
+    width: 1.5rem;
+    height: 1.5rem;
+    display: grid;
+    place-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked + .customRadio {
+    background-color: var(--purpleDark);
+    border-color: var(--purpleDark);
+}
+
+.check {
+    color: var(--gray-100);
+    margin-top: 3px;
+}
+
+.textContainer {
+    max-width: 80%;
+}
+
+.text {
+    color: var(--gray-100);
+}
+button {
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    line-height: 0;
+}
+
+.trash {
+    color: var(--gray-300);
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: 0.438rem;
+}

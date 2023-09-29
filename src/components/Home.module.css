@@ -1,0 +1,47 @@
+.listTask {
+    display: grid;
+    justify-content: center;
+    margin-right: 1rem;
+    margin-top: 3rem;
+}
+
+.noTasks {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 10rem;
+}
+
+.clipBoard {
+    margin-left: 40%;
+    color: var(--gray-500);
+}
+
+p {
+    color: var(--gray-300);
+}
+
+.contador {
+    display: flex;
+    justify-content: space-evenly;
+    width: calc(93.75rem - 47.25rem);
+}
+
+.taskCriada {
+    color: var(--blue);
+}
+
+.taskCriada span {
+    color: var(--gray-100);
+}
+
+.taskConcluida {
+    color: var(--purple);
+    margin-left: 56%;
+}
+
+.taskConcluida span{
+    margin-left: 5px;
+    color: var(--gray-100);
+}
